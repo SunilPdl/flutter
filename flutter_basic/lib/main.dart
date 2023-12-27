@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter_basic/topics/drawer/Drawer2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,56 +13,57 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text("Home"),
-              ),
-              ListTile(
-                leading: Icon(Icons.mail),
-                title: Text("Gmail"),
-              ),
-              ListTile(
-                leading: Icon(Icons.notifications),
-                title: Text("Notifications"),
-              ),
-              ListTile(
-                leading: Icon(Icons.call),
-                title: Text("Phone"),
-              ),
-              ListTile(
-                leading: Icon(Icons.face_outlined),
-                title: Text("Profile"),
-              ),
-              ListTile(
-                leading: Icon(Icons.sailing),
-                title: Text("Sailing"),
-              ),
-              ListTile(
-                leading: Icon(Icons.hail_outlined),
-                title: Text("Hail_outlined"),
-              ),
-              ListTile(
-                leading: Icon(Icons.search),
-                title: Text("Search"),
-              ),
-              ListTile(
-                leading: Icon(Icons.wallet),
-                title: Text("Wallet"),
-              ),
-              ListTile(
-                leading: Icon(Icons.face),
-                title: Text("Face"),
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text("Settings"),
-              ),
-            ],
-          ),
-        ),
+        // body: DrawerDemo(),
+        // body: Drawer(
+        //   child: ListView(
+        //     children: [
+        //       ListTile(
+        //         leading: Icon(Icons.home),
+        //         title: Text("Home"),
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.mail),
+        //         title: Text("Gmail"),
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.notifications),
+        //         title: Text("Notifications"),
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.call),
+        //         title: Text("Phone"),
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.face_outlined),
+        //         title: Text("Profile"),
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.sailing),
+        //         title: Text("Sailing"),
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.hail_outlined),
+        //         title: Text("Hail_outlined"),
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.search),
+        //         title: Text("Search"),
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.wallet),
+        //         title: Text("Wallet"),
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.face),
+        //         title: Text("Face"),
+        //       ),
+        //       ListTile(
+        //         leading: Icon(Icons.settings),
+        //         title: Text("Settings"),
+        //       ),
+        //     ],
+        //   ),
+        // ),
         appBar: AppBar(
           // leading: Icon(Icons.home),
           title: Text('F basic'),
@@ -72,6 +74,7 @@ class MyApp extends StatelessWidget {
             IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
           ],
         ),
+        body: Text('hiiii'),
       ),
     );
   }
