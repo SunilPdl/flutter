@@ -16,10 +16,16 @@ class _MoneyConverterState extends State<MoneyConverter> {
     super.initState();
   }
 
-  convertFunction() {
+  void convertFunction() {
     setState(() {
       result = double.parse(textEditingController.text) * 129;
     });
+  }
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
   }
 
   @override
@@ -30,7 +36,7 @@ class _MoneyConverterState extends State<MoneyConverter> {
         style: BorderStyle.solid,
       ),
       borderRadius: BorderRadius.all(
-        Radius.circular(50),
+        Radius.circular(10),
       ),
     );
 
@@ -46,20 +52,22 @@ class _MoneyConverterState extends State<MoneyConverter> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              result.toString(),
-              style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: (Color.fromRGBO(25, 25, 25, 1))),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              margin: const EdgeInsets.only(bottom: 20.0),
-              child: TextField(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'NPR: ${result == 0 ? result.toStringAsFixed(0) : result.toStringAsFixed(2)}',
+                style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: (Color.fromRGBO(25, 25, 25, 1))),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
                 controller: textEditingController,
                 decoration: const InputDecoration(
                   hintText: "Enter your amount in USD",
@@ -75,10 +83,10 @@ class _MoneyConverterState extends State<MoneyConverter> {
                 ),
                 keyboardType: TextInputType.number,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: ElevatedButton(
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
                 // onPressed: () {
                 //   convertFunction();
                 // },
@@ -87,11 +95,13 @@ class _MoneyConverterState extends State<MoneyConverter> {
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
                   minimumSize: const Size(double.infinity, 60),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                 ),
                 child: const Text("Convert"),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
