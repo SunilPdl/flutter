@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class AdditionalInfo extends StatelessWidget {
   final IconData icon;
-  String text;
-  double value;
+  final String text;
+  final double temperature;
 
-  AdditionalInfo({
+  const AdditionalInfo({
     required this.icon,
     required this.text,
-    required this.value,
+    required this.temperature,
     Key? key,
   }) : super(key: key);
 
@@ -32,7 +32,7 @@ class AdditionalInfo extends StatelessWidget {
             height: 4,
           ),
           Text(
-            value.toString(),
+            temperature.toString(),
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,

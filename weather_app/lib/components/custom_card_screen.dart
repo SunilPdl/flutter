@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
-  String time;
-  String text;
-  CustomCard({
+  final String time;
+  final String text;
+  const CustomCard({
     required this.time,
     required this.text,
     Key? key,
