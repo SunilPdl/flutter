@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
+  String time;
+  String text;
   CustomCard({
     required this.time,
     required this.text,
     Key? key,
   }) : super(key: key);
 
-  String time;
-  String text;
   @override
   Widget build(BuildContext context) {
     return Card(
