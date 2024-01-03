@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:weather_app/components/additional_info_card.dart';
 import 'package:weather_app/components/custom_card_screen.dart';
 import 'package:weather_app/components/weather_card_screen.dart';
 
@@ -78,6 +79,29 @@ class WeatherApp extends StatelessWidget {
               "Additional Information",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 18),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  AdditionalInfo(
+                    icon: Icons.water_drop,
+                    text: "Humidity",
+                    value: 50.0,
+                  ),
+                  AdditionalInfo(
+                    icon: Icons.air,
+                    text: "Wind Speed",
+                    value: 8.76,
+                  ),
+                  AdditionalInfo(
+                    icon: Icons.beach_access,
+                    text: "Pressure",
+                    value: 1050,
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
