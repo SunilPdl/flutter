@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:weather_app/components/custom_card_screen.dart';
+import 'package:weather_app/components/weather_card_screen.dart';
 
 class WeatherApp extends StatelessWidget {
   const WeatherApp({super.key});
@@ -31,57 +33,9 @@ class WeatherApp extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //for main card
-            SizedBox(
+            const SizedBox(
               width: double.infinity,
-              child: Card(
-                elevation: 12,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(16),
-                  ),
-                ),
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(16),
-                  ),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 10,
-                      sigmaY: 10,
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: Column(
-                        children: [
-                          Text(
-                            "130 °F",
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Icon(
-                            Icons.cloud,
-                            size: 64,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Rain",
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              child: WeatherCard(),
             ),
             const SizedBox(
               height: 20,
@@ -94,195 +48,36 @@ class WeatherApp extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Card(
-                    elevation: 6,
-                    child: Container(
-                      width: 100,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16)),
-                      child: const Column(
-                        children: [
-                          Text(
-                            "3:00",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Icon(
-                            Icons.cloud,
-                            size: 32,
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text("320.34")
-                        ],
-                      ),
-                    ),
+                  CustomCard(
+                    time: "3:00",
+                    text: "320.00",
                   ),
-                  Card(
-                    elevation: 6,
-                    child: Container(
-                      width: 100,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16)),
-                      child: const Column(
-                        children: [
-                          Text(
-                            "3:00",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Icon(
-                            Icons.cloud,
-                            size: 32,
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text("320.34")
-                        ],
-                      ),
-                    ),
+                  CustomCard(
+                    time: "5:00",
+                    text: "340.00",
                   ),
-                  Card(
-                    elevation: 6,
-                    child: Container(
-                      width: 100,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16)),
-                      child: const Column(
-                        children: [
-                          Text(
-                            "3:00",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Icon(
-                            Icons.cloud,
-                            size: 32,
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text("320.34")
-                        ],
-                      ),
-                    ),
+                  CustomCard(
+                    time: "7:00",
+                    text: "360.00",
                   ),
-                  Card(
-                    elevation: 6,
-                    child: Container(
-                      width: 100,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16)),
-                      child: const Column(
-                        children: [
-                          Text(
-                            "3:00",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Icon(
-                            Icons.cloud,
-                            size: 32,
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text("320.34")
-                        ],
-                      ),
-                    ),
+                  CustomCard(
+                    time: "9:00",
+                    text: "380.00",
                   ),
-                  Card(
-                    elevation: 6,
-                    child: Container(
-                      width: 100,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16)),
-                      child: const Column(
-                        children: [
-                          Text(
-                            "3:00",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Icon(
-                            Icons.cloud,
-                            size: 32,
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text("320.34")
-                        ],
-                      ),
-                    ),
-                  ),
-                  Card(
-                    elevation: 6,
-                    child: Container(
-                      width: 100,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16)),
-                      child: const Column(
-                        children: [
-                          Text(
-                            "3:00",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Icon(
-                            Icons.cloud,
-                            size: 32,
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text("320.34")
-                        ],
-                      ),
-                    ),
+                  CustomCard(
+                    time: "11:00",
+                    text: "420.00",
                   ),
                 ],
               ),
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              "Additional Information",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
           ],
         ),
       ),
