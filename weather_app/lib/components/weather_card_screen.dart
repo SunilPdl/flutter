@@ -3,9 +3,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class WeatherCard extends StatelessWidget {
-  const WeatherCard({
-    super.key,
-  });
+  double temp;
+  IconData icon;
+  final String weatherStatus;
+
+  WeatherCard({
+    required this.temp,
+    required this.icon,
+    required this.weatherStatus,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +32,12 @@ class WeatherCard extends StatelessWidget {
             sigmaX: 10,
             sigmaY: 10,
           ),
-          child: const Padding(
+          child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
             child: Column(
               children: [
                 Text(
-                  "140°F",
+                  '$temp k',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -40,14 +47,14 @@ class WeatherCard extends StatelessWidget {
                   height: 10,
                 ),
                 Icon(
-                  Icons.cloud,
+                  icon,
                   size: 64,
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Text(
-                  "Rain",
+                  weatherStatus,
                   style: TextStyle(
                     fontSize: 20,
                   ),
