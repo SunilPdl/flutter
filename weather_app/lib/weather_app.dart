@@ -14,12 +14,12 @@ class WeatherApp extends StatefulWidget {
 }
 
 class _WeatherAppState extends State<WeatherApp> {
-  double temp = 0;
-  String weatherStatus = 'hbi';
+  late Future<Map<String, dynamic>> weather;
+
   Future<Map<String, dynamic>> getWeatherInfo() async {
     try {
       final apikey = dotenv.env['API_KEY'];
-      String cityName = 'London';
+      String cityName = 'Pokhara';
       final url =
           'https://api.openweathermap.org/data/2.5/weather?q=$cityName&APPID=$apikey';
       final uri = Uri.parse(url);
@@ -35,11 +35,11 @@ class _WeatherAppState extends State<WeatherApp> {
     }
   }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   getWeatherInfo();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    weather = getWeatherInfo();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,14 +55,16 @@ class _WeatherAppState extends State<WeatherApp> {
         actions: [
           IconButton(
             onPressed: () {
-              debugPrint("refresh");
+              setState(() {
+                weather = getWeatherInfo();
+              });
             },
             icon: const Icon(Icons.refresh),
           ),
         ],
       ),
       body: FutureBuilder(
-        future: getWeatherInfo(),
+        future: weather,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -77,6 +79,7 @@ class _WeatherAppState extends State<WeatherApp> {
           final humidity = weatherData['main']['humidity'];
           final pressure = weatherData['main']['pressure'];
           final windSpeed = weatherData['wind']['speed'];
+
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -100,7 +103,7 @@ class _WeatherAppState extends State<WeatherApp> {
                   "Weather Forecast",
                   style: TextStyle(fontSize: 22),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 6,
                 ),
                 const SingleChildScrollView(
@@ -142,7 +145,7 @@ class _WeatherAppState extends State<WeatherApp> {
                   "Additional Information",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 6,
                 ),
                 Container(
