@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 class CustomCard extends StatelessWidget {
   final String time;
   final String text;
+  final IconData icon;
   const CustomCard({
     required this.time,
     required this.text,
+    required this.icon,
     Key? key,
   }) : super(key: key);
 
@@ -29,8 +31,8 @@ class CustomCard extends StatelessWidget {
             const SizedBox(
               height: 4,
             ),
-            const Icon(
-              Icons.cloud,
+            Icon(
+              icon,
               size: 32,
             ),
             const SizedBox(
